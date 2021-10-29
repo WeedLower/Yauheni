@@ -1,4 +1,9 @@
-
+DROP TABLE IF EXISTS authors;
+CREATE TABLE authors(
+                        id INT PRIMARY KEY ,
+                        first_name VARCHAR(50),
+                        last_name VARCHAR(50)
+);
 insert into authors (id,first_name, last_name) values (1,'Drucie', 'Goodbourn');
 insert into authors (id,first_name, last_name) values (2,'Marcia', 'Aggiss');
 insert into authors (id,first_name, last_name) values (3,'Giovanni', 'Bigg');

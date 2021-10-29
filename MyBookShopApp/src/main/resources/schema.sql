@@ -1,16 +1,18 @@
 DROP TABLE IF EXISTS authors;
 DROP TABLE IF EXISTS books;
 
+
 CREATE TABLE authors(
-    id INT ,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50)
+id INT PRIMARY KEY ,
+first_name VARCHAR(50),
+last_name VARCHAR(50)
 );
 
 CREATE TABLE  books(
-id INT AUTO_INCREMENT PRIMARY KEY,
+id INT PRIMARY KEY,
 title VARCHAR(250) NOT NULL,
 priceOld  VARCHAR(250) DEFAULT NULL,
 price VARCHAR(250) DEFAULT NULL,
-author_id INT FOREIGN KEY REFERENCES authors(id)
+author INT,
+FOREIGN KEY(author) REFERENCES authors(id)
 );
