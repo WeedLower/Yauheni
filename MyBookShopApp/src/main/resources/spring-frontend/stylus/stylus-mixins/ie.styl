@@ -9,7 +9,7 @@ $is-ie--version ?= 0
 
 ie($version, $strict = false)
   if ($is-ie == true)
-    if($strict == true)
+    if($strict) == true
       if ($is-ie--version == $version)
         {block}
     else
