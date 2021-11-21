@@ -3,6 +3,8 @@ package com.example.MyBookShopApp.data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.sql.ResultSet;
 import java.util.List;
@@ -30,4 +32,6 @@ public class AuthorsService {
     });
         return authors.stream().collect(Collectors.groupingBy((Author a)-> {return a.getLastName().substring(0,1);}));
     }
+
+
 }

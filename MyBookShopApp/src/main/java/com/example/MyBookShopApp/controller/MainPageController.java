@@ -1,15 +1,16 @@
 package com.example.MyBookShopApp.controller;
 
+import com.example.MyBookShopApp.data.Book;
 import com.example.MyBookShopApp.data.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
-@RequestMapping("/bookshop")
 public class MainPageController {
 
     private final BookService bookService;
@@ -19,20 +20,16 @@ public class MainPageController {
         this.bookService = bookService;
     }
 
-    @GetMapping("/main")
-    public String mainPage(Model model){
-        model.addAttribute("bookData", bookService.getBookData());
+    @ModelAttribute("recommendedBooks")
+    public List<Book> recommendedBooks(){
+        return bookService.getBookData();
+    }
+
+    @GetMapping("/")
+    public String mainPage(){
         return "index";
     }
 
-    @PostMapping("/genres")
-    public String genresPage(){
-        return "redirect:/bookshop/genres";
-    }
 
-    @PostMapping("/author")
-    public String authorPage(){
-        return "redirect:/bookshop/author";
-    }
 
 }
