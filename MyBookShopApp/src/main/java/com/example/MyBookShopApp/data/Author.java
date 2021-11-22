@@ -1,11 +1,22 @@
 package com.example.MyBookShopApp.data;
 
+import java.util.List;
+
 public class Author {
     private Integer id;
     private String firstName;
     private String lastName;
     private String biography;
     private String photo;
+    private List<Book> books;
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
+    }
 
     @Override
     public String toString() {
