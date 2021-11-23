@@ -12,5 +12,9 @@ public class GenresPageController {
         return "/genres/index";
     }
 
+    @GetMapping("genres/SLUG")
+    public String genresSlugPage(){
+        return "genres/slug";
+    }
 
 }

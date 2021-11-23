@@ -33,7 +33,7 @@ public class AuthorsPageConroller {
         return "/authors/index";
     }
 
-    @RequestMapping(value = "/slug", method = RequestMethod.GET)
+    @RequestMapping(value = "/SLUG", method = RequestMethod.GET)
     public String authorId(@RequestParam(name = "id") Integer id,Model model){
         Author author=authorsService.getAuthor(id);
         author.setBooks(authorsService.getBookAuthor(id));

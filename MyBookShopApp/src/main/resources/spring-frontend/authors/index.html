@@ -4,7 +4,7 @@
 <html class="ie9" lang="ru">
 <html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Авторы</title>
+  <title th:text="#{title.authors}">Авторы</title>
   <meta name="description" content="Описание страницы">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
@@ -35,7 +35,7 @@
   <div class="Middle">
     <div class="wrap">
       <main class="Middle-main">
-        <h1 class="Middle-title">Авторы
+        <h1 class="Middle-title" th:text="#{title.authors}">Авторы
         </h1>
         <div class="Section">
           <div class="Authors">
@@ -47,7 +47,7 @@
               </h2>
               <div class="Authors-letter">
                 <div th:each="author : ${authorList.value}" class="Authors-item">
-                  <a href="slug.html"  th:href="@{/slug} +'?id=' + ${author.id}" th:text="${author.lastName + ' ' + author.firstName}">Абгарян Наринэ</a>
+                  <a href="slug.html"  th:href="@{/SLUG} +'?id=' + ${author.id}" th:text="${author.lastName + ' ' + author.firstName}">Абгарян Наринэ</a>
                 </div>
               </div>
             </div>
