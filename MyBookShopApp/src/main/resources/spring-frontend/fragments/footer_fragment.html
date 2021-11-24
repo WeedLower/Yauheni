@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymelead.org">
+<link rel="stylesheet" href="myStyle.css">
 <body>
 <footer class="Footer" th:fragment="footFragment">
     <div class="wrap">
@@ -47,14 +48,15 @@
                     <li class="menu-item"><a class="menu-link" href="/contacts.html" th:href="@{/contact}" th:text="#{topbar.contact}">Контакты</a>
                     </li>
                     <li class="menu-item">
-                        <span th:text="#{element.select}">Выбор языка</span>
+                        <span  th:text="#{element.select}">Выбор языка</span>
                         <select id="locales">
-                            <option value=" "></option>
+                            <option value="" th:text="#{element.select1}">Select...</option>
                             <option value="en">English</option>
                             <option value="ru">Русский</option>
                         </select>
                     </li>
                 </ul>
+
             </div>
         </div>
     </div>

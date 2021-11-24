@@ -24,7 +24,7 @@ insert into authors (id,first_name, last_name) values (23,'Helyn', 'Schneidar');
 insert into authors (id,first_name, last_name) values (24,'Bette-ann', 'Askem');
 insert into authors (id,first_name, last_name) values (25,'Dom', 'Robuchon');
 
-insert into books (id,title, priceOld, price,author) values (1,'exploit real-time e-commerce', '$203.23', '$43.37',1);
+insert into books (id,title, priceOld, author) values (1,'exploit real-time e-commerce', '$203.23',1);
 insert into books (id,title, priceOld, price,author) values (2,'utilize real-time interfaces', '$260.31', '$35.96',2);
 insert into books (id,title, priceOld, price,author) values (3,'extend strategic e-services', '$272.00', '$151.04',3);
 insert into books (id,title, priceOld, price,author) values (4,'iterate integrated solutions', '$271.58', '$141.40',4);
