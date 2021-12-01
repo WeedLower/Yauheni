@@ -1,6 +1,6 @@
 package com.example.MyBookShopApp.controller;
 
-import com.example.MyBookShopApp.data.Book;
+import com.example.MyBookShopApp.data.struct.book.Book;
 import com.example.MyBookShopApp.data.BookService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

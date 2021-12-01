@@ -1,4 +1,4 @@
-package com.example.MyBookShopApp.data;
+package com.example.MyBookShopApp.data.struct.book;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,13 +13,22 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(columnDefinition = "VARCHAR(255) NOT NULL")
     private String firstName;
+
+    @Column(columnDefinition = "VARCHAR(255) NOT NULL")
     private String lastName;
-    private String biography;
+
+    @Column(columnDefinition = "TEXT")
+    private String description;
+
+    @Column(columnDefinition = "VARCHAR(255)")
     private String photo;
 
-    @OneToMany
-    @JoinColumn(name = "author_id", referencedColumnName = "id")
+    @Column(columnDefinition = "VARCHAR(255)") //NOT NULL
+    private String slug;
+
+    @OneToMany(mappedBy = "author")
     private List<Book> bookList = new ArrayList<>();
 
     public List<Book> getBooks() {
@@ -54,12 +63,12 @@ public class Author {
         this.lastName = lastName;
     }
 
-    public String getBiography() {
-        return biography;
+    public String getDescription() {
+        return description;
     }
 
-    public void setBiography(String biography) {
-        this.biography = biography;
+    public void setDescription(String biography) {
+        this.description = biography;
     }
 
     public String getPhoto() {
@@ -69,4 +78,13 @@ public class Author {
     public void setPhoto(String photo) {
         this.photo = photo;
     }
+
+    public String getSlug() {
+        return slug;
+    }
+
+    public void setSlug(String slug) {
+        this.slug = slug;
+    }
+
 }
