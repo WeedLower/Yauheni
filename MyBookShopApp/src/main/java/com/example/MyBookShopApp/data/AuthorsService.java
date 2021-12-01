@@ -33,7 +33,7 @@ public class AuthorsService {
         return authors.stream().collect(Collectors.groupingBy((Author a)-> {return a.getLastName().substring(0,1);}));
     }
      public Author getAuthor(Integer id){
-        List<Author> authors = jdbcTemplate.query("SELECT * FROM authors WHERE ID",((ResultSet rs, int rowNum) -> {
+        List<Author> authors = jdbcTemplate.query("SELECT * FROM authors",((ResultSet rs, int rowNum) -> {
             Author author = new Author();
             author.setId(rs.getInt("id"));
             author.setFirstName(rs.getString("first_name"));
@@ -48,14 +48,14 @@ public class AuthorsService {
 
 
     public List<Book> getBookAuthor(Integer authorId){
-        List<Book> books = jdbcTemplate.query("SELECT books.id, books.title, books.priceold, books.price, authors.first_name, authors.last_name\n" +
-                "FROM books LEFT JOIN authors \n" +
-                "ON books.author = authors.Id",(ResultSet rs, int rowNum) -> {
+        List<Book> books = jdbcTemplate.query("SELECT * \n" +
+                "FROM books FULL OUTER JOIN authors \n" +
+                "ON books.author_id = authors.Id",(ResultSet rs, int rowNum) -> {
             Book book = new Book();
             book.setId(rs.getInt("id"));
-            book.setAuthor(rs.getString("authors.first_name")+" "+rs.getString("authors.last_name"));
+            book.setAuthor(rs.getString("first_name")+" "+rs.getString("last_name"));
             book.setTitle(rs.getString("title"));
-            book.setPriceOld(rs.getString("priceOld"));
+            book.setPriceOld(rs.getString("price_old"));
             book.setPrice(rs.getString("price"));
             return book;
         });

@@ -36,7 +36,7 @@ public class AuthorsPageConroller {
     @RequestMapping(value = "/SLUG", method = RequestMethod.GET)
     public String authorId(@RequestParam(name = "id") Integer id,Model model){
         Author author=authorsService.getAuthor(id);
-        author.setBooks(authorsService.getBookAuthor(id));
+        author.setBookList(authorsService.getBookAuthor(id));
         model.addAttribute("books",author.getBooks());
         model.addAttribute("id",author.getId());
         model.addAttribute("lastname",author.getLastName());
@@ -45,10 +45,4 @@ public class AuthorsPageConroller {
         model.addAttribute("photo",author.getPhoto());
         return "/authors/slug";
     }
-
-
-//    @ModelAttribute("authorBooks")
-//    public List<Book> authorBooks(){
-//        return authorsService.getBookAuthor();
-//    }
 }
