@@ -11,7 +11,7 @@ public class MessageEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(columnDefinition = "TIMESTAMP NOT NULL")
+    @Column(columnDefinition = "TIMESTAMP(0) NOT NULL")
     private LocalDateTime time;
 
     @Column(columnDefinition = "INT")
